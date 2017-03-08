@@ -46,8 +46,8 @@ run apt-get -y install php5.6 \
 
 run pecl install mongodb
 run echo "extension=mongodb.so" >> /etc/php/5.6/apache2/php.ini 
-#run sed -e 's/post_max_size = 8M/post_max_size = 5G/' /etc/php/5.6/apache2/php.ini > /etc/php/5.6/apache2/php.ini
-#run sed -e 's/upload_max_filesize = 2M/upload_max_filesize = 2G/' /etc/php/5.6/apache2/php.ini > /etc/php/5.6/apache2/php.ini
+run sed -e 's/post_max_size = 8M/post_max_size = 100M/' /etc/php/5.6/apache2/php.ini > /etc/php/5.6/apache2/php.ini
+run sed -e 's/upload_max_filesize = 2M/upload_max_filesize = 100M/' /etc/php/5.6/apache2/php.ini > /etc/php/5.6/apache2/php.ini
 run a2enmod rewrite
 
 
