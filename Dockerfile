@@ -4,7 +4,11 @@ FROM ubuntu:xenial
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-#RUN locale-gen en_US.UTF-8 fr_CA.UTF-8
+RUN apt-get clean && apt-get update && apt-get install -y locales
+run apt-get upgrade -y
+run apt-get install tzdata apt-utils -y
+RUN locale-gen en_US.UTF-8
+
 ENV LANG en_US.UTF-8
 
 RUN echo "Europe/Rome" > /etc/timezone && dpkg-reconfigure tzdata
@@ -12,8 +16,6 @@ RUN echo "Europe/Rome" > /etc/timezone && dpkg-reconfigure tzdata
 RUN groupadd -g 600 webmgr
 RUN useradd -u 600 -g 600 webmgr
 
-RUN apt-get update 
-RUN apt-get upgrade -y
 run apt-get -y install software-properties-common vim 
 
 RUN add-apt-repository -y ppa:ondrej/php
@@ -43,7 +45,9 @@ run apt-get -y install php5.6 \
                        supervisor \
                        openssl \
                        libssl-dev \
-                       libsslcommon2-dev 
+                       libsslcommon2-dev \
+		       tzdata
+
 
 run pecl install mongodb
 run echo "extension=mongodb.so" >> /etc/php/5.6/apache2/php.ini 
