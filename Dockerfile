@@ -4,7 +4,7 @@ FROM ubuntu:xenial
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-RUN locale-gen en_US.UTF-8 fr_CA.UTF-8
+#RUN locale-gen en_US.UTF-8 fr_CA.UTF-8
 ENV LANG en_US.UTF-8
 
 RUN echo "Europe/Rome" > /etc/timezone && dpkg-reconfigure tzdata
