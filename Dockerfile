@@ -22,6 +22,7 @@ RUN apt-get update
 
 run apt-get -y install php5.6 \
 		       php5.6-mbstring \
+		       php5.6-memcache \
                        php5.6-mcrypt \
                        php5.6-xml \
                        php5.6-bcmath \
